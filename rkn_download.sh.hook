@@ -1,0 +1,17 @@
+#!/bin/bash
+
+main() {
+	log "Запущено обновление списков РосКомНадзора"
+	log "Запущено обновление списков РосКомНадзора" >> $LOGFILE
+	prepare
+
+	for dir in $(find /opt/rkn_cloud/var/requests/ -mindepth 1 -type d); do
+		echo "# $dir"
+		cp $dir/request.xml* $SSLDIR/php/ || continue
+		chroot_work || continue
+		cp $DUMPXML $dir/
+	done
+	client_post_hook
+	log "Завершено обновление списков РосКомНадзора"
+	log "Завершено обновление списков РосКомНадзора" >> $LOGFILE
+}
