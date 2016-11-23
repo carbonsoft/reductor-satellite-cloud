@@ -24,4 +24,9 @@ mkdir /opt/rkn_cloud/ooo_superprovider_3
 
 В них поместить файлы запросов: `request.xml` и `request.xml.sign`
 
-Положить [хук](/rkn_download.sh.hook) на место `/opt/reductor_satellite/userinfo/hooks/rkn_download.sh`
+Добавить [хук](/rkn_download.sh.hook) на место `/opt/reductor_satellite/userinfo/hooks/rkn_download.sh`
+
+```
+wget https://raw.githubusercontent.com/carbonsoft/reductor-satellite-cloud/master/rkn_download.sh.hook -O /opt/reductor_satellite/userinfo/hooks/rkn_download.sh
+chmod a+x /opt/reductor_satellite/userinfo/hooks/rkn_download.sh
+```
